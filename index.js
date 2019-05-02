@@ -7,16 +7,17 @@ const db = [
 ];
 
 // when Get request comes in, send back all messages
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.json(db);
 });
 
 //when post request comes in, add message to array of messages
-app.post('/', (req, res) => {
+app.post('/api', (req, res) => {
     console.log(req.body.message);
     db.push(req.body.message);
     res.json({
         'message': req.body.message
+        
     })
 });
 app.listen(3000, () => {
